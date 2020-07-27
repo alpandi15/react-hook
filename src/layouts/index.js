@@ -10,7 +10,7 @@ const Layout = ({
   return(
     <div>
       <HeaderMemo />
-      <div>
+      <div className="position-relative p-3">
         {children}
       </div>
     </div>

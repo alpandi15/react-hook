@@ -1,7 +1,44 @@
 import React from 'react'
 import Layout from '../../layouts'
+import Input from '../../components/form/Input'
 
 const Register = () => {
+  const inputRefs = React.useRef([
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef(),
+    React.createRef()
+  ])
+  const [data, setData] = React.useState({})
+
+  const handleChange = (name, value) => {
+    setData(prev => (
+      {...prev, [name]: value}
+    ))
+  }
+
+  const onSubmit = (e) => {
+    e.preventDefault()
+    let isValid = true;
+
+    for (let i = 0; i < inputRefs.current.length; i++) {
+      const valid = inputRefs.current[i].current.validate()
+      console.log(valid)
+      if (!valid) {
+        isValid = false
+      }
+    }
+
+    if (!isValid) {
+      return
+    }
+
+    console.log("Logged In");
+  }
+
+  console.log(inputRefs)
+
   return (
     <Layout>
       <div>
@@ -12,36 +49,58 @@ const Register = () => {
                 <p className="divider-text">
                     <span className="bg-light">OR</span>
                 </p>
-                <form>
+                <form onSubmit={onSubmit}>
                     <div className="form-group input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text"> <i className="fas fa-user"></i> </span>
-                        </div>
-                        <input name="name" className="form-control" placeholder="Full name" type="text" />
+                        <Input
+                          ref={inputRefs.current[0]}
+                          name="name"
+                          className="form-control"
+                          placeholder="Full name"
+                          type="text"
+                          onChange={handleChange}
+                          validation="required|min:6|max:12"
+                        />
                     </div>
                     <div className="form-group input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text"> <i className="fas fa-envelope"></i> </span>
-                        </div>
-                        <input name="email" className="form-control" placeholder="Email address" type="email" />
+                        <Input
+                          ref={inputRefs.current[1]}
+                          name="email"
+                          className="form-control"
+                          placeholder="E-Mail"
+                          type="text"
+                          onChange={handleChange}
+                          validation="required|min:6|max:12"
+                        />
                     </div>
                     <div className="form-group input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text"> <i className="fas fa-user"></i> </span>
-                        </div>
-                        <input name="username" className="form-control" placeholder="Username" type="text" />
+                        <Input
+                          ref={inputRefs.current[2]}
+                          name="username"
+                          className="form-control"
+                          placeholder="Username"
+                          type="text"
+                          onChange={handleChange}
+                        />
                     </div>
                     <div className="form-group input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text"> <i className="fas fa-user"></i> </span>
-                        </div>
-                        <input name="password" className="form-control" placeholder="Password" type="text" />
+                        <Input
+                          ref={inputRefs.current[3]}
+                          name="password"
+                          className="form-control"
+                          placeholder="Password"
+                          type="password"
+                          onChange={handleChange}
+                        />
                     </div>
                     <div className="form-group input-group">
-                        <div className="input-group-prepend">
-                            <span className="input-group-text"> <i className="fas fa-user"></i> </span>
-                        </div>
-                        <input name="repassword" className="form-control" placeholder="Repeat Password" type="text" />
+                        <Input
+                          ref={inputRefs.current[4]}
+                          name="repassword"
+                          className="form-control"
+                          placeholder="Password"
+                          type="password"
+                          onChange={handleChange}
+                        />
                     </div>
                     <div className="form-group">
                         <button type="submit" className="btn btn-primary btn-block"> Create Account  </button>

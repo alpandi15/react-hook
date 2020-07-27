@@ -19,6 +19,12 @@ const Input = forwardRef((props, ref) => {
       for (let i = 0; i < rules.length; i++) {
         const current = rules[i];
 
+        if (current === "email") {
+          if (!/^\w+([\\.-]?\w+)*@\w+([\\.-]?\w+)*(\.\w{2,3})+$/.test(value)) {
+            setError("Please using email format");
+            return false
+          }
+        }
         if (current === "required") {
           if (!value) {
             setError("This field is required");

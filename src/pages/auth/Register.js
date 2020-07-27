@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Layout from '../../layouts'
 import Input from '../../components/form/Input'
 
@@ -34,10 +35,8 @@ const Register = () => {
       return
     }
 
-    console.log("Logged In");
+    console.log("Logged In ", data);
   }
-
-  console.log(data)
 
   return (
     <Layout>
@@ -58,7 +57,7 @@ const Register = () => {
                           placeholder="Full name"
                           type="text"
                           onChange={handleChange}
-                          validation="required|min:6|max:12"
+                          validation="required|min:6|max:30"
                         />
                     </div>
                     <div className="form-group">
@@ -69,7 +68,7 @@ const Register = () => {
                           placeholder="E-Mail"
                           type="text"
                           onChange={handleChange}
-                          validation="required|min:6|max:50"
+                          validation="required|email|min:6|max:50"
                         />
                     </div>
                     <div className="form-group">
@@ -91,7 +90,7 @@ const Register = () => {
                           placeholder="Password"
                           type="password"
                           onChange={handleChange}
-                          validation="required|min:6|max:12"
+                          validation="required|min:6|max:50"
                         />
                     </div>
                     <div className="form-group">
@@ -102,13 +101,13 @@ const Register = () => {
                           placeholder="Confirm Password"
                           type="password"
                           onChange={handleChange}
-                          validation="required|min:6|max:12"
+                          validation="required|min:6|max:50"
                         />
                     </div>
                     <div className="form-group">
                         <button type="submit" className="btn btn-primary btn-block"> Create Account  </button>
                     </div>
-                    <p className="text-center">Have an account? <a href="">Log In</a> </p>
+                    <p className="text-center">Have an account? <Link to="#">Log In</Link> </p>
                 </form>
             </article>
         </div>

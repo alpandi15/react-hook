@@ -50,7 +50,7 @@ const Register = () => {
                     <span className="bg-light">OR</span>
                 </p>
                 <form onSubmit={onSubmit}>
-                    <div className="form-group input-group">
+                    <div className="form-group">
                         <Input
                           ref={inputRefs.current[0]}
                           name="name"
@@ -61,7 +61,7 @@ const Register = () => {
                           validation="required|min:6|max:12"
                         />
                     </div>
-                    <div className="form-group input-group">
+                    <div className="form-group">
                         <Input
                           ref={inputRefs.current[1]}
                           name="email"
@@ -72,7 +72,7 @@ const Register = () => {
                           validation="required|min:6|max:12"
                         />
                     </div>
-                    <div className="form-group input-group">
+                    <div className="form-group">
                         <Input
                           ref={inputRefs.current[2]}
                           name="username"
@@ -82,7 +82,7 @@ const Register = () => {
                           onChange={handleChange}
                         />
                     </div>
-                    <div className="form-group input-group">
+                    <div className="form-group">
                         <Input
                           ref={inputRefs.current[3]}
                           name="password"
@@ -92,7 +92,7 @@ const Register = () => {
                           onChange={handleChange}
                         />
                     </div>
-                    <div className="form-group input-group">
+                    <div className="form-group">
                         <Input
                           ref={inputRefs.current[4]}
                           name="repassword"

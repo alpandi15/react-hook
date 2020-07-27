@@ -72,3 +72,8 @@
   }
 
   .overflow-hidden { overflow: hidden; }
+
+  .form-control:focus {
+    border-color: #333 !important;
+    box-shadow: none !important;
+  }

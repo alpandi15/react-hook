@@ -37,7 +37,7 @@ const Register = () => {
     console.log("Logged In");
   }
 
-  console.log(inputRefs)
+  console.log(data)
 
   return (
     <Layout>
@@ -69,7 +69,7 @@ const Register = () => {
                           placeholder="E-Mail"
                           type="text"
                           onChange={handleChange}
-                          validation="required|min:6|max:12"
+                          validation="required|min:6|max:50"
                         />
                     </div>
                     <div className="form-group">
@@ -80,6 +80,7 @@ const Register = () => {
                           placeholder="Username"
                           type="text"
                           onChange={handleChange}
+                          validation="required|min:6|max:12"
                         />
                     </div>
                     <div className="form-group">
@@ -90,6 +91,7 @@ const Register = () => {
                           placeholder="Password"
                           type="password"
                           onChange={handleChange}
+                          validation="required|min:6|max:12"
                         />
                     </div>
                     <div className="form-group">
@@ -97,9 +99,10 @@ const Register = () => {
                           ref={inputRefs.current[4]}
                           name="repassword"
                           className="form-control"
-                          placeholder="Password"
+                          placeholder="Confirm Password"
                           type="password"
                           onChange={handleChange}
+                          validation="required|min:6|max:12"
                         />
                     </div>
                     <div className="form-group">
